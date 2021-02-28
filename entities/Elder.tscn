@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/colored_transparent_packed.png" type="Texture" id=1]
+[ext_resource path="res://SquareShape.tres" type="Shape2D" id=2]
+[ext_resource path="res://entities/Elder.gd" type="Script" id=3]
+[ext_resource path="res://assets/sounds/talk.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/Minimal3x5.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 416, 16, 16, 16 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 4
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[node name="Elder" type="Area2D"]
+z_index = 2
+monitoring = false
+monitorable = false
+collision_mask = 0
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -13.0
+margin_top = -12.0
+margin_right = 70.0
+margin_bottom = 2.0
+custom_fonts/font = SubResource( 2 )
+text = "He lost his soul"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

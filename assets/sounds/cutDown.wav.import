@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cutDown.wav-1d7cddbc1b1589df2a1b871168f186b0.sample"
+
+[deps]
+
+source_file="res://assets/sounds/cutDown.wav"
+dest_files=[ "res://.import/cutDown.wav-1d7cddbc1b1589df2a1b871168f186b0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

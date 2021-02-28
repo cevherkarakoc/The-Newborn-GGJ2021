@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/Minimal3x5.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/player.png" type="Texture" id=2]
+[ext_resource path="res://assets/circle.png" type="Texture" id=3]
+[ext_resource path="res://scenes/intro.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 6
+font_data = ExtResource( 1 )
+
+[node name="Main" type="Node2D"]
+
+[node name="circle" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 70, 53 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 144.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 1 )
+text = "The Newborn"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 20.0
+margin_right = 144.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 2 )
+text = "Press any key to start"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player" type="Sprite" parent="."]
+position = Vector2( 70, 80 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+script = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="player"]
+repeat = true
+playback/repeat = true
